@@ -1,64 +1,39 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# おくすり投稿アプリ
+## About This App
+* お家にある謎の医薬品を写真付きでアップロードする
+* 何の薬かを判断してコメントします
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Login
+<img width="1440" alt="スクリーンショット 2021-10-21 19 08 50" src="https://user-images.githubusercontent.com/89469673/138322601-bbf2ef07-b22f-4d7c-b567-5f781ecfff9f.png">
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Index
+<img width="1440" alt="スクリーンショット 2021-10-22 1 58 59" src="https://user-images.githubusercontent.com/89469673/138323566-0bce5241-0dcc-4bb8-90d5-81cd76e8fed8.png">
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### Create
+<img width="1440" alt="スクリーンショット 2021-10-22 1 03 07" src="https://user-images.githubusercontent.com/89469673/138322557-893ae82e-fd8d-4944-8a6c-e4ef99616113.png">
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Show
+<img width="1440" alt="スクリーンショット 2021-10-22 1 42 28" src="https://user-images.githubusercontent.com/89469673/138323109-d3e7e8a7-8142-4a65-903b-a5196ebd966d.png">
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+### Comment
+<img width="1440" alt="スクリーンショット 2021-10-22 1 12 38" src="https://user-images.githubusercontent.com/89469673/138322418-9d650765-3828-4f91-aeb3-3d8782213c2e.png">
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+### Edit
+<img width="1440" alt="スクリーンショット 2021-10-22 1 43 19" src="https://user-images.githubusercontent.com/89469673/138322373-3af9284b-dc66-42b1-a0c8-0911cfe5da5d.png">
 
-## Contributing
+## Tables
+https://docs.google.com/spreadsheets/d/1-RehNhP2ABkSAIEDYdWdgPEyxvjZiznKH59taWTEclA/edit?usp=sharing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 概要
+* Laravel Breezeをベースに実装
+* User以外にモデルを2つ以上でリレーション
+* CRUD機能(登録、更新、照会、一覧、削除)を作成
+* 画像ファイルの複数同時アップロードと表示(Firebase Storage) 表示方法は複数表示
+* SNS認証(github,google)
+* Bootstrap・TailwindCSS等を使用
