@@ -58,14 +58,14 @@ class PostController extends Controller
                     if (!$path) {
                         throw new Exception('ファイルの保存に失敗しました');
                     }
+                    $attachment = new Attachment([
+                        'post_id' => $post->id,
+                        'org_name' => $file->getClientOriginalName(),
+                        'name' => basename($path),
+                    ]);
+                    $attachment->save();
                 }
-                $attachment = new Attachment([
-                    'post_id' => $post->id,
-                    'org_name' => $file->getClientOriginalName(),
-                    'name' => basename($path),
-                ]);
 
-                $attachment->save();
                 DB::commit();
             }
         } catch (\Exception $e) {

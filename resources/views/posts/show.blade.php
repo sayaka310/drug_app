@@ -11,7 +11,7 @@
                         <div class="col-6">
 
                             @foreach ($post->image_urls as $image_url)
-                                <article class="w-full px-4 md:w-1/4 text-xl text-gray-800 leading-normal">
+                                <article class="w-full px-4 md:w-1/4 text-xl text-gray-1000 leading-normal">
                                     <img class="w-full mb-2" src="{{ $image_url }}" alt="image">
                                 </article>
                             @endforeach
