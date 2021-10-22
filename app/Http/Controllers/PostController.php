@@ -68,15 +68,16 @@ class PostController extends Controller
 
                 DB::commit();
             }
-        } catch (\Exception $e) {
-            if (!empty($path)) {
+        }catch (\Exception $e) {
+            foreach ($paths as $path) {
+                if (!empty($path)) {
                 Storage::delete($path);
-            }
-            DB::rollback();
-            return back()
-                ->withErrors($e->getMessage());
+                }
+                }
+                DB::rollback();
+                return back()->withInput()->withErrors($e->getMessage());
         }
-
+        
         return redirect()
             ->route('posts.index')
             ->with(['flash_message' => '登録が完了しました']);

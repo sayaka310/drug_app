@@ -44,17 +44,17 @@ class CommentController extends Controller
         $comment = new Comment($request->all());
         $comment->user_id = $request->user()->id;
 
-        // トランザクション開始
-        DB::beginTransaction();
+        // // トランザクション開始
+        // DB::beginTransaction();
         try {
             // 登録
             $post->comments()->save($comment);
 
             // トランザクション終了(成功)
-            DB::commit();
+            // DB::commit();
         } catch (\Exception $e) {
             // トランザクション終了(失敗)
-            DB::rollback();
+            // DB::rollback();
             return back()->withInput()->withErrors($e->getMessage());
         }
 
