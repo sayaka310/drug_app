@@ -87,7 +87,7 @@ class PostController extends Controller
                 }
             }
             DB::rollback();
-            return back()->withErrors($e->getMessage());
+            return back()->withInput()->withErrors($e->getMessage());
         }
 
         return redirect()
