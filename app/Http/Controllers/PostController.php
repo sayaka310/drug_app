@@ -65,19 +65,21 @@ class PostController extends Controller
                     ]);
                     $attachment->save();
                 }
-
                 DB::commit();
-            }
-        }catch (\Exception $e) {
+                }
+                foreach ($paths as $path) {
+                if (!Storage::delete($path)) {
+                    throw new \Exception('ファイルの削除に失敗しました');
+                }}
+        } catch (\Exception $e) {
             foreach ($paths as $path) {
-                if (!empty($path)) {
-                Storage::delete($path);
-                }
-                }
-                DB::rollback();
-                return back()->withInput()->withErrors($e->getMessage());
+            if (!Storage::delete($path)) {
+                throw new \Exception('ファイルの削除に失敗しました');
+                }}
+            DB::rollback();
+            return back()->withInput()->withErrors($e->getMessage());
         }
-        
+
         return redirect()
             ->route('posts.index')
             ->with(['flash_message' => '登録が完了しました']);
