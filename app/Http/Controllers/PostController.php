@@ -44,40 +44,50 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $post = new Post($request->all());
+
         $post->user_id = $request->user()->id;
+
         $files = $request->file('image');
+
         DB::beginTransaction();
+
         try {
+
             $post->save();
 
             if (!empty($files)) {
+                
                 $paths = [];
+                
                 foreach ($files as $file) {
                     $name = $file->getClientOriginalName();
                     $path = Storage::putFile('posts', $file);
+                    $paths[] = $path;
                     if (!$path) {
                         throw new Exception('ファイルの保存に失敗しました');
                     }
+
                     $attachment = new Attachment([
                         'post_id' => $post->id,
                         'org_name' => $file->getClientOriginalName(),
                         'name' => basename($path),
                     ]);
+                    
                     $attachment->save();
                 }
+
                 DB::commit();
-                }
-                foreach ($paths as $path) {
-                if (!Storage::delete($path)) {
-                    throw new \Exception('ファイルの削除に失敗しました');
-                }}
+            }
         } catch (\Exception $e) {
-            foreach ($paths as $path) {
-            if (!Storage::delete($path)) {
-                throw new \Exception('ファイルの削除に失敗しました');
-                }}
+            
+            if (!empty($paths)) {
+                
+                foreach ($paths as $path) {
+                    Storage::delete($path);
+                }
+            }
             DB::rollback();
-            return back()->withInput()->withErrors($e->getMessage());
+            return back()->withErrors($e->getMessage());
         }
 
         return redirect()
